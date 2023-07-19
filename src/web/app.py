@@ -4,7 +4,6 @@ import random
 
 app = Flask(__name__)
 
-OMDB_API_KEY = '8cf623f0'
 
 def get_latest_movies():
     response = requests.get('https://api.gdriveplayer.us/v1/movie/newest', params={'limit': 10, 'page': 1, 'order': 'date', 'sort': 'DESC'})
@@ -42,7 +41,7 @@ def get_latest_movies():
 
 
 def search_movies(title):
-    response = requests.get('http://www.omdbapi.com/', params={'s': title, 'apikey': '8cf623f0'})
+    response = requests.get('http://www.omdbapi.com/', params={'s': title})
     data = response.json()
 
     movies = []
